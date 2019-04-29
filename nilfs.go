@@ -65,6 +65,10 @@ func (*FileSystem) RemoveAll(name string) error {
 	return nil
 }
 
+func (*FileSystem) Rename(oldpath, newpath string) error {
+	return nil
+}
+
 func (*FileSystem) Stat(name string) (os.FileInfo, error) {
 	return nil, nil
 }
