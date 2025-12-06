@@ -1,6 +1,7 @@
 package nilfs
 
 import (
+	"io"
 	"os"
 )
 
@@ -11,11 +12,11 @@ func (File) Name() string {
 }
 
 func (File) Read(p []byte) (int, error) {
-	return 0, nil
+	return 0, io.EOF
 }
 
 func (File) ReadAt(b []byte, off int64) (n int, err error) {
-	return 0, nil
+	return 0, io.EOF
 }
 
 func (File) Write(p []byte) (int, error) {
