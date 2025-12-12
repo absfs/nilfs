@@ -1,5 +1,5 @@
 module github.com/absfs/nilfs
 
-go 1.23
+go 1.21
 
-require github.com/absfs/absfs v0.9.1
+require github.com/absfs/absfs v1.0.0
