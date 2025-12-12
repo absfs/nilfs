@@ -21,14 +21,6 @@ func TestNilFs(t *testing.T) {
 		testfs = fs
 	})
 
-	if testfs.Separator() != 0 {
-		t.Fatal("nilfs should not define a Separator")
-	}
-
-	if testfs.ListSeparator() != 0 {
-		t.Fatal("nilfs should not define a ListSeparator")
-	}
-
 	var err error
 	name := "/foo.bar"
 	err = testfs.Chdir(name)

@@ -1,6 +1,7 @@
 package nilfs
 
 import (
+	"io/fs"
 	"os"
 	"time"
 
@@ -11,14 +12,6 @@ type FileSystem struct{}
 
 func NewFs() (*FileSystem, error) {
 	return &FileSystem{}, nil
-}
-
-func (*FileSystem) Separator() uint8 {
-	return 0
-}
-
-func (*FileSystem) ListSeparator() uint8 {
-	return 0
 }
 
 func (*FileSystem) Chdir(name string) error {
@@ -102,4 +95,16 @@ func (*FileSystem) Readlink(name string) (string, error) {
 
 func (*FileSystem) Symlink(oldname, newname string) error {
 	return nil
+}
+
+func (*FileSystem) ReadDir(name string) ([]fs.DirEntry, error) {
+	return []fs.DirEntry{}, nil
+}
+
+func (*FileSystem) ReadFile(name string) ([]byte, error) {
+	return []byte{}, nil
+}
+
+func (f *FileSystem) Sub(dir string) (fs.FS, error) {
+	return absfs.FilerToFS(f, dir)
 }

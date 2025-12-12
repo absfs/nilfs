@@ -2,6 +2,7 @@ package nilfs
 
 import (
 	"io"
+	"io/fs"
 	"os"
 )
 
@@ -57,4 +58,8 @@ func (File) Truncate(size int64) error {
 
 func (File) WriteString(s string) (n int, err error) {
 	return 0, nil
+}
+
+func (File) ReadDir(n int) ([]fs.DirEntry, error) {
+	return []fs.DirEntry{}, nil
 }

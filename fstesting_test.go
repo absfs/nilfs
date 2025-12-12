@@ -18,12 +18,6 @@ func TestNilFS_Operations(t *testing.T) {
 
 	t.Run("Filesystem", func(t *testing.T) {
 		// Test basic filesystem properties
-		if sep := fs.Separator(); sep != 0 {
-			t.Errorf("Separator() = %d, want 0", sep)
-		}
-		if sep := fs.ListSeparator(); sep != 0 {
-			t.Errorf("ListSeparator() = %d, want 0", sep)
-		}
 		if dir := fs.TempDir(); dir != "" {
 			t.Errorf("TempDir() = %q, want empty string", dir)
 		}
